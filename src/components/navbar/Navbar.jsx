@@ -1,11 +1,13 @@
-import React from 'react'
+import React,  {useContext} from 'react'
 import styled from 'styled-components'
+import { Mytheme } from '../../App'
+
 
 const Container = styled.div`
     width: 90%;
     margin: 0 auto;
     height: 10%;
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.primary};
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,21 +15,30 @@ const Container = styled.div`
 
 const Logo = styled.h1`
     font-size: 20px;
-    text-decoration: underline;
-    color: darkblue;
+    text-decoration: None;
+    color: ${(props) => props.theme.colors.bgPrimary};
     cursor: pointer;
+    &:hover{
+        color: red;
+    }
 `
 
 const Left = styled.div`
-    
+    flex: 1;
 `
 
 const Center = styled.div`
-    
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const Right = styled.div`
-    
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `
 
 const Menu = styled.ul`
@@ -37,7 +48,7 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
     font-size: 20px;
     font-weight: bold;
-    margin-right: 30px;
+    margin-right: 20px;
     color: gray;
     cursor: pointer;
     &:hover{
@@ -61,10 +72,13 @@ const Button = styled.button`
 `
 
 function Navbar() {
+
+  const mytheme = useContext(Mytheme);
+
   return (
-    <Container>
-        <Left><Logo>IT Support</Logo></Left>
-        <Center><Menu>
+    <Container theme = {mytheme}>
+        <Left><Logo theme = {mytheme}>IT Support</Logo></Left>
+        <Center><Menu theme = {mytheme}>
             <MenuItem>Home</MenuItem>
             <MenuItem>About us</MenuItem>
             <MenuItem>Services</MenuItem>
