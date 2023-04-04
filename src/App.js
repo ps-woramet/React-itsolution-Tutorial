@@ -2,11 +2,17 @@ import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components';
 import Hero from './components/Hero/Hero';
 import Infoboxes from './components/Infoboxes/Infoboxes';
-import Navbar from './components/navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import React, {createContext} from 'react';
-
+import { ThemeProvider } from 'styled-components';
+import InfoSectionOne from './components/InfoSectionOne/InfoSectionOne';
+import InfoSectionTwo from './components/InfoSectionTwo/InfoSectionTwo';
+import InfoSectionThree from './components/InfoSectionThree/InfoSectionThree';
+import Teams from './components/Team/Teams';
+import InfoSectionfour from './components/InfoSectionfour.jsx/InfoSectionfour';
+import Blogs from './components/Blogs/Blogs';
+import Footer from './components/Footer/Footer';
 export const Mytheme = createContext();
-
 
 const GloblaStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
@@ -23,15 +29,12 @@ const GloblaStyles = createGlobalStyle`
 
 const Container = styled.div`
   background-color: white;
-  height: 100vh;
-`
-const Title = styled.h1`
-  color: ${(props) => props.theme.colors.secondary};
+  height: 100%;
 `
 
 const theme = {
   colors: {
-    primary: "white",
+    primary: "darkBlue",
     secondary: "tomato",
     light: "black",
     text: "snow",
@@ -49,14 +52,23 @@ function App() {
     // style-component <tag></tag>
     // function-component <tag/>
     <>
-    <Mytheme.Provider value = {theme}>
+    <ThemeProvider theme={theme}>
+      <Mytheme.Provider value = {theme}>
       <GloblaStyles/>
       <Container>
         <Navbar/>
-        <Hero/>
+        <Hero thistheme = {theme}/>
         <Infoboxes/>
+        <InfoSectionOne/>
+        <InfoSectionTwo/>
+        <InfoSectionThree/>
+        <InfoSectionfour/>
+        <Teams/>
+        <Blogs/>
+        <Footer/>
       </Container>
     </Mytheme.Provider>
+    </ThemeProvider>
     </>
   );
 }
