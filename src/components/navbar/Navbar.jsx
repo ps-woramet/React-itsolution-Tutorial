@@ -8,7 +8,7 @@ const Container = styled.div`
     top: 0;
     width: 100%;
     margin: 0 auto;
-    height: 10%;
+    height: 20%;
     background-color: ${(props) => props.theme_navbar.colors.bgDefault};
     display: flex;
     padding-left: 20px;
@@ -87,17 +87,6 @@ const Button = styled.button`
         background-color: ${(props) => props.theme_navbar.colors.bgLight};;
         color: ${(props) => props.theme_navbar.colors.bgPrimary};
         border: 2px solid darkblue;
-    }
-    @media only screen and (max-width: 600px) {
-        padding: 18px 10px;
-    }
-    //for Tablets and Medium Screens
-    @media only screen and (min-width: 600px) {
-        padding: 18px 10px;
-    }
-    //for laptops and desktops
-    @media only screen and (min-width: 992px) {
-        padding: 18px 10px;
     }
 `
 
