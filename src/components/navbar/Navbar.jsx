@@ -8,7 +8,7 @@ const Container = styled.div`
     top: 0;
     width: 100%;
     margin: 0 auto;
-    height: 5%;
+    height: 12%;
     background-color: ${(props) => props.theme_navbar.colors.bgDefault};
     display: flex;
     padding-left: 20px;
@@ -38,11 +38,11 @@ const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 800px) {
     display: none;
     }
     //for Tablets and Medium Screens
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 800px) {
         display: flex;
     }
     //for laptops and desktops
