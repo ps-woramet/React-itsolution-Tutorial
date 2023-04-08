@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components';
 import Hero from './components/Hero/Hero';
@@ -14,6 +15,7 @@ import Blogs from './components/Blogs/Blogs';
 import Footer from './components/Footer/Footer';
 export const Mytheme = createContext();
 
+
 const GloblaStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
   *{
@@ -28,8 +30,8 @@ const GloblaStyles = createGlobalStyle`
 `;
 
 const Container = styled.div`
-  background-color: white;
   height: 100%;
+  background-color: ${(props) => props.theme.colors.bgDefault};
 `
 
 const theme = {
@@ -47,17 +49,34 @@ const theme = {
   },
 };
 
+const darktheme = {
+  colors: {
+    primary: "white",
+    secondary: "tomato",
+    light: "yellow",
+    text: "snow",
+    textDark: "gray",
+    bgDefault: "black",
+    bgPrimary: "black",
+    bgSecondary: "black",
+    bgLight: "aliceBlue",
+    hoverColor: "black",
+  },
+};
+
+
 function App() {
+  const [mode, setMode] = useState(false);
   return (
     // style-component <tag></tag>
     // function-component <tag/>
     <>
-    <ThemeProvider theme={theme}>
-      <Mytheme.Provider value = {theme}>
+    <ThemeProvider theme={mode ? darktheme : theme}>
+      <Mytheme.Provider value = {mode ? darktheme : theme}>
       <GloblaStyles/>
       <Container>
-        <Navbar/>
-        <Hero thistheme = {theme}/>
+        <Navbar setMode={setMode} mode={mode}/>
+        <Hero thistheme = {mode ? darktheme : theme}/>
         <Infoboxes/>
         <InfoSectionOne/>
         <InfoSectionTwo/>

@@ -14,6 +14,19 @@ export const Container = styled.div`
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: ${ ({ height }) => height };
+    @media only screen and (max-width: 600px) {
+    background-size: 100% 100%;
+    height: 40%;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+      background-size: 100% 100%;
+      height: 40%;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+      background-size: cover;
+    }
 `
 
 const Title = styled.div`
@@ -32,11 +45,25 @@ export const TextWrapper = styled.div`
 `
 
 const Description = styled.p`
-color: white;
-width: 80%;
-font-weight: lighter;
-font-size: 25px;
-padding: 2%;
+    color: white;
+    width: 80%;
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 2%;
+    @media only screen and (max-width: 600px) {
+      width: 90%;
+      font-size: 20px;
+      text-align: center;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+      width: 80%;
+      text-align: center;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+      width: 40%;
+    }
 
 `
 

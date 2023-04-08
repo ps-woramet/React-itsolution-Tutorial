@@ -16,6 +16,7 @@ const Container = styled.div`
     align-items: center;
     box-shadow: 20px 33px 46px -15px rgba(0,0,0,0.31);
     -webkit-box-shadow: 20px 33px 46px -15px rgba(0,0,0,0.31);
+    
 `
 
 const Logo = styled.h1`
@@ -37,13 +38,26 @@ const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: 600px) {
+    display: none;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+        display: flex;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+        display: flex;
+    }
 `
 
 const Right = styled.div`
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
+    flex-direction: row;
+    display: flex;
 `
 
 const Menu = styled.ul`
@@ -51,7 +65,7 @@ const Menu = styled.ul`
     list-style: none;
 `
 const MenuItem = styled.li`
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     margin-right: 20px;
     color: ${(props) => props.theme_navbar.colors.textDark};
@@ -67,16 +81,47 @@ const Button = styled.button`
     border: 2px solid ${(props) => props.theme_navbar.colors.text};;
     cursor: pointer;
     color: ${(props) => props.theme_navbar.colors.text};
-    padding: 10px 10px;
+    padding: 20px 10px;
     border-radius: 10px;
     &:hover{
         background-color: ${(props) => props.theme_navbar.colors.bgLight};;
-        color: ${(props) => props.theme_navbar.colors.bgPrimary};;
+        color: ${(props) => props.theme_navbar.colors.bgPrimary};
         border: 2px solid darkblue;
+    }
+    @media only screen and (max-width: 600px) {
+        padding: 18px 10px;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+        padding: 18px 10px;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+        padding: 18px 10px;
     }
 `
 
-function Navbar() {
+const DarkMode = styled.div`
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background-color: ${(props) => props.theme_navbar.colors.light};
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+`;
+
+const Navbar = ({ mode, setMode }) =>  {
 
   const mytheme = useContext(Mytheme);
 
@@ -90,7 +135,10 @@ function Navbar() {
             <MenuItem theme_navbar = {mytheme}>Contact</MenuItem>
             <MenuItem theme_navbar = {mytheme}>Blog</MenuItem>
             </Menu></Center>
-        <Right><Button theme_navbar = {mytheme}>Call us Now!</Button></Right>
+        <Right>
+            <Button theme_navbar = {mytheme}>Call us Now!</Button>
+            <DarkMode theme_navbar = {mytheme} onClick={() => setMode(!mode)} />
+        </Right>
     </Container>
   )
 }

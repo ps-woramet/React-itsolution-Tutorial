@@ -12,6 +12,18 @@ const Container = styled.div`
   width: 100%;
   margin-top: 5%;
   height: 40%;
+  //for Mobiles
+  @media only screen and (max-width: 600px) {
+  width: 100%;
+  }
+  //for Tablets and Medium Screens
+  @media only screen and (min-width: 600px) {
+    height: 20%;
+  }
+  //for laptops and desktops
+  @media only screen and (min-width: 992px) {
+    height: 30%;
+  }
 `;
 
 const Title = styled.div`
@@ -30,6 +42,24 @@ const Description = styled.div`
   font-weight: bold;
   font-size: 20px;
   width: 30%;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    padding: 2%;
+  }
+  //for Tablets and Medium Screens
+  @media only screen and (min-width: 600px) {
+    width: 40%;
+    font-size: 18px;
+    text-align: center;
+  }
+  //for laptops and desktops
+  @media only screen and (min-width: 992px) {
+    width: 30%;
+    font-size: 20px;
+    text-align: center;
+  }
 `;
 
 const Menu = styled.div`

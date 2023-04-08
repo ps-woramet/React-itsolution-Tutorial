@@ -29,7 +29,7 @@ const Subtitle = styled.div`
 
 function InfoSectionfour() {
   return (
-    <Container height = "300px" sectionImage = {sectionImage4}>
+    <Container height = "300px" sectionImage = {sectionImage4} >
         <Card>
             <CardContent>
                 <Number>

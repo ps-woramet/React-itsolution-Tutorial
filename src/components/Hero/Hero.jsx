@@ -9,6 +9,15 @@ const Container = styled.div`
     height: 90%;
     margin-bottom: 20px;
     background-color: ${(props) => props.theme_hero.colors.bgDefault};
+    @media only screen and (max-width: 600px) {
+    height: 60%;
+    }
+    @media only screen and (min-width: 600px) {
+        height: 50%;
+    }
+    @media only screen and (min-width: 992px) {
+        height: 80%;
+    }
 `
 
 const Left = styled.div`
@@ -18,6 +27,15 @@ const Left = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media only screen and (min-width: 600px) {
+    width: 50%;
+    }
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
+    @media only screen and (min-width: 992px) {
+        width: 60%;
+    }
 `
 
 const Title = styled.div`
@@ -27,12 +45,37 @@ const Title = styled.div`
     color: ${(props) => props.theme_hero.colors.primary};
     text-align: center;
     margin-bottom: 20px;
+    @media only screen and (max-width: 600px) {
+    width: 100%;
+    font-size: 30px;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+        width: 85%;
+        font-size: 30px;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+        width: 85%;
+    }
 `
 
 const Description = styled.p`
     width: 70%;
     font-size: 16px;
     color: ${(props) => props.theme_hero.colors.textDark};;
+    @media only screen and (max-width: 600px) {
+    width: 80%;
+    text-align: center;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+        width: 70%;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+        width: 70%;
+    }
 `
 
 const Right = styled.div`
@@ -40,12 +83,20 @@ const Right = styled.div`
     background-color: ${(props) => props.theme_hero.colors.bgDefault};
     display: flex;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+    display: none;
+    }
 `
 
 const Image = styled.img`
     width: 500px;
     background-color: ${(props) => props.theme_hero.colors.bgDefault};
-
+    @media only screen and (min-width: 600px) {
+    width: 400px;
+    }
+    @media only screen and (min-width: 992px) {
+        width: 500px;
+    }
 `
 
 const ButtonsContainer = styled.div`
@@ -73,6 +124,18 @@ const Button = styled.button`
         border: 2px solid ${(props) => props.theme_hero.colors.primary};
         background-position: left bottom;
         cursor: pointer;
+    }
+    //for Mobiles
+    @media only screen and (max-width: 600px) {
+        padding: 10px 25px;
+    }
+    //for Tablets and Medium Screens
+    @media only screen and (min-width: 600px) {
+        padding: 10px 30px;
+    }
+    //for laptops and desktops
+    @media only screen and (min-width: 992px) {
+        padding: 15px 30px;
     }
 `
 
