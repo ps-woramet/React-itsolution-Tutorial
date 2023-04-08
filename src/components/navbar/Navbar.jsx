@@ -8,7 +8,7 @@ const Container = styled.div`
     top: 0;
     width: 100%;
     margin: 0 auto;
-    height: 20%;
+    height: 5%;
     background-color: ${(props) => props.theme_navbar.colors.bgDefault};
     display: flex;
     padding-left: 20px;
@@ -77,11 +77,12 @@ const MenuItem = styled.li`
 
 const Button = styled.button`
     font-weight: bold;
+    font-size: 15px;
     background-color: ${(props) => props.theme_navbar.colors.bgPrimary};
     border: 2px solid ${(props) => props.theme_navbar.colors.text};;
     cursor: pointer;
     color: ${(props) => props.theme_navbar.colors.text};
-    padding: 20px 10px;
+    padding: 10px 10px;
     border-radius: 10px;
     &:hover{
         background-color: ${(props) => props.theme_navbar.colors.bgLight};;
